@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/screen_utils.dart';
 import '../widgets/auth_theme.dart';
 import 'login_form.dart';
 
@@ -13,7 +12,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtils.init(context); 
     return Scaffold(
       body: AuthTheme(
         child: Padding(

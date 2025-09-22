@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:tarkiz_infotech/core/constant/app_colors.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OtpInput extends StatelessWidget {
   final TextEditingController controller;

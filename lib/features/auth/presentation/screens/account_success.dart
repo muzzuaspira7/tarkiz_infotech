@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tarkiz_infotech/core/constant/app_colors.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
 import 'package:tarkiz_infotech/shared_widgets/app_text.dart';
 import 'package:tarkiz_infotech/shared_widgets/gradient_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountSuccess extends StatelessWidget {
   const AccountSuccess({super.key});

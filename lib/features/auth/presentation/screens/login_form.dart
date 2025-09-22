@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tarkiz_infotech/core/constant/app_colors.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
 import 'package:tarkiz_infotech/features/auth/presentation/screens/otp_screen.dart';
 import 'package:tarkiz_infotech/features/auth/provider/auth_provider.dart';
 import 'package:tarkiz_infotech/features/home/presentation/screens/home_screen.dart';
@@ -13,6 +12,7 @@ import '../widgets/bottom_actions.dart';
 import '../widgets/custom_phone_field.dart';
 import '../widgets/logo_widget.dart';
 import '../widgets/toggle.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -64,7 +64,6 @@ class _LoginFormState extends State<LoginForm> {
         );
       }
     } else {
-      // Show error if validation fails
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Invalid input"),
@@ -150,7 +149,7 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
 
-          SizedBox(height: 160.h),
+          SizedBox(height: 140.h),
           if (!provider.isLogin)
             BottomActions(
               emailOrPhone: provider.emailController.toString(),

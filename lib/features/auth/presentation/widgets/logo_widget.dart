@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tarkiz_infotech/shared_widgets/app_text.dart';
 
 class LogoWidget extends StatelessWidget {

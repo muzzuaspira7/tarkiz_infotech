@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
 import '../core/constant/app_colors.dart';
 import 'app_text.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradientButton extends StatelessWidget {
   final String text;

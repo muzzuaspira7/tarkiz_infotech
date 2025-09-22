@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
 import 'package:tarkiz_infotech/features/auth/presentation/screens/account_success.dart';
 import 'package:tarkiz_infotech/shared_widgets/app_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});

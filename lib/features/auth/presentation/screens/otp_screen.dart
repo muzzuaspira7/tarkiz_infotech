@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tarkiz_infotech/core/utils/screen_utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tarkiz_infotech/features/auth/presentation/widgets/logo_widget.dart';
 import 'package:tarkiz_infotech/shared_widgets/loading_screen.dart';
 import '../../../../core/constant/app_colors.dart';
@@ -19,6 +19,17 @@ class OtpScreen extends StatefulWidget {
 class _OtpScreenState extends State<OtpScreen> {
   final pinController = TextEditingController();
   final focusNode = FocusNode();
+  bool isOtpComplete = false;
+
+  @override
+  void initState() {
+    super.initState();
+    pinController.addListener(() {
+      setState(() {
+        isOtpComplete = pinController.text.length == 6;
+      });
+    });
+  }
 
   @override
   void dispose() {
@@ -67,29 +78,46 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       const SizedBox(height: 24),
 
+                      // SizedBox(
+                      //   width: double.infinity,
+                      //   height: 50,
+                      //   child: GradientButton(
+                      //     text: "Verify",
+                      //     onPressed: () {
+                      //       if(pinController.text.length == 6){
+                      //         Navigator.pushReplacement(
+                      //           context,
+                      //           MaterialPageRoute(builder: (_) => const LoadingScreen()),
+                      //         );
+                      //       } else {
+                      //         ScaffoldMessenger.of(context).showSnackBar(
+                      //           const SnackBar(
+                      //             content: Text('Please enter a valid 6-digit OTP'),
+                      //             duration: Duration(seconds: 2),
+                      //           ),
+                      //         );
+                      //       }
+                      //     },
+                      //     isEnabled: pinController.text.length == 6,
+                      //   ),
+                      // ),
                       SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: GradientButton(
                           text: "Verify",
-                          onPressed: () {
-                            // print('OTP: ${pinController.text}');
-                            if(pinController.text.length == 6){
-                              // Navigate to HomeScreen
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (_) => const LoadingScreen()),
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Please enter a valid 6-digit OTP'),
-                                  duration: Duration(seconds: 2),
-                                ),
-                              );
-                            }
-                          },
-                          isEnabled: pinController.text.length == 6,
+                          onPressed:
+                              isOtpComplete
+                                  ? () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => const LoadingScreen(),
+                                      ),
+                                    );
+                                  }
+                                  : null,
+                          isEnabled: isOtpComplete,
                         ),
                       ),
 
